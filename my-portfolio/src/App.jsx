@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { profile } from "./data/profile";
 
-function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+{/* Projects */}
+<Section id="projects" title="Projects">
+<div className="grid md:grid-cols-2 gap-6">
+{profile.projects.map((p, idx) => <ProjectCard key={idx} project={p} />)}
+</div>
+</Section>
+
+
+{/* Skills */}
+<Section id="skills" title="Skills">
+<div className="flex flex-wrap gap-3">
+{profile.skills.map((s, idx) => (
+<span key={idx} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">{s}</span>
+))}
+</div>
+</Section>
+
+
+{/* Contact */}
+<Section id="contact" title="Contact">
+<p>Email: <a href={`mailto:${profile.contact.email}`} className="text-blue-600">{profile.contact.email}</a></p>
+</Section>
+
+
+<Footer />
+</div>
+);
 }
 
-export default App
+
+export default App;
