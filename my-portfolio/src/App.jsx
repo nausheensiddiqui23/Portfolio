@@ -1,4 +1,22 @@
 import { profile } from "./data/profile";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Section from "./components/Section";
+import ProjectCard from "./components/ProjectCard";
+
+
+function App() {
+return (
+<div className="dark:bg-gray-900 dark:text-white min-h-screen">
+<Navbar />
+
+
+{/* Hero */}
+<header className="flex flex-col items-center justify-center text-center pt-24 pb-16">
+<img src={profile.avatar} alt="avatar" className="w-32 h-32 rounded-full mb-4" />
+<h1 className="text-4xl font-bold">{profile.name}</h1>
+<p className="text-lg text-gray-600 dark:text-gray-400">{profile.role}</p>
+</header>
 
 
 {/* Projects */}
